@@ -23,7 +23,7 @@ import android.os.Parcelable;
 
 public class Action implements Parcelable {
 	
-public static final int ACTION_NONE = 0;
+	public static final int ACTION_NONE = 0;
 	
 	public static final int ACTION_SHOW_TOAST = 1;
 	public static final int ACTION_SHOW_DIALOG = 2;

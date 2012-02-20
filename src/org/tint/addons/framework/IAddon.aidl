@@ -20,6 +20,9 @@ package org.tint.addons.framework;
 
 import org.tint.addons.framework.Action;
 
+/**
+ * AIDL interface for an addon service.
+ */
 interface IAddon {
 	void onBind();
 	void onUnbind();

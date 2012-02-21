@@ -23,12 +23,15 @@ public class Callbacks {
 	public static final int PAGE_STARTED = 1;
 	public static final int PAGE_FINISHED = 2;
 	
-	public static final int HAS_PREFERENCES_PAGE = 4;
+	public static final int TAB_OPENED = 4;
+	public static final int TAB_CLOSED = 8;
 	
-	public static final int CONTRIBUTE_MAIN_MENU = 8;
-	public static final int CONTRIBUTE_LINK_CONTEXT_MENU = 16;
-	public static final int CONTRIBUTE_HISTORY_BOOKMARKS_MENU = 32;
-	public static final int CONTRIBUTE_BOOKMARK_CONTEXT_MENU = 64;
-	public static final int CONTRIBUTE_HISTORY_CONTEXT_MENU = 128;
+	public static final int HAS_PREFERENCES_PAGE = 16;
+	
+	public static final int CONTRIBUTE_MAIN_MENU = 32;
+	public static final int CONTRIBUTE_LINK_CONTEXT_MENU = 64;
+	public static final int CONTRIBUTE_HISTORY_BOOKMARKS_MENU = 128;
+	public static final int CONTRIBUTE_BOOKMARK_CONTEXT_MENU = 256;
+	public static final int CONTRIBUTE_HISTORY_CONTEXT_MENU = 512;
 
 }

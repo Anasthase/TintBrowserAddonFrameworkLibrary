@@ -35,8 +35,11 @@ interface IAddon {
 	
 	int getCallbacks();
 	
-	List<Action> onPageStarted(String url);
-	List<Action> onPageFinished(String url);
+	List<Action> onPageStarted(String webViewId, String url);
+	List<Action> onPageFinished(String webViewId, String url);
+	
+	List<Action> onTabOpened(String webViewId);
+	List<Action> onTabClosed(String webViewId);
 	
 	String getContributedMainMenuItem();
 	List<Action> onContributedMainMenuItemSelected(String currentTitle, String currentUrl);

@@ -35,28 +35,28 @@ interface IAddon {
 	
 	int getCallbacks();
 	
-	List<Action> onPageStarted(String webViewId, String url);
-	List<Action> onPageFinished(String webViewId, String url);
+	List<Action> onPageStarted(String tabId, String url);
+	List<Action> onPageFinished(String tabId, String url);
 	
-	List<Action> onTabOpened(String webViewId);
-	List<Action> onTabClosed(String webViewId);
+	List<Action> onTabOpened(String tabId);
+	List<Action> onTabClosed(String tabId);
 	
-	String getContributedMainMenuItem();
-	List<Action> onContributedMainMenuItemSelected(String currentTitle, String currentUrl);
+	String getContributedMainMenuItem(String currentTabId);
+	List<Action> onContributedMainMenuItemSelected(String currentTabId, String currentTitle, String currentUrl);
 	
-	String getContributedLinkContextMenuItem(int hitTestResult, String url);
-	List<Action> onContributedLinkContextMenuItemSelected(int hitTestResult, String url);
+	String getContributedLinkContextMenuItem(String currentTabId, int hitTestResult, String url);
+	List<Action> onContributedLinkContextMenuItemSelected(String currentTabId, int hitTestResult, String url);
 	
-	String getContributedHistoryBookmarksMenuItem();
-	List<Action> onContributedHistoryBookmarksMenuItemSelected();
+	String getContributedHistoryBookmarksMenuItem(String currentTabId);
+	List<Action> onContributedHistoryBookmarksMenuItemSelected(String currentTabId);
 	
-	String getContributedBookmarkContextMenuItem();
-	List<Action> onContributedBookmarkContextMenuItemSelected(String title, String url);
+	String getContributedBookmarkContextMenuItem(String currentTabId);
+	List<Action> onContributedBookmarkContextMenuItemSelected(String currentTabId, String title, String url);
 	
-	String getContributedHistoryContextMenuItem();
-	List<Action> onContributedHistoryContextMenuItemSelected(String title, String url);
+	String getContributedHistoryContextMenuItem(String currentTabId);
+	List<Action> onContributedHistoryContextMenuItemSelected(String currentTabId, String title, String url);
 	
-	List<Action> onUserAnswerQuestion(String questionId, boolean positiveAnswer);
+	List<Action> onUserAnswerQuestion(String currentTabId, String questionId, boolean positiveAnswer);
 	
 	void showAddonPreferenceActivity();	
 }

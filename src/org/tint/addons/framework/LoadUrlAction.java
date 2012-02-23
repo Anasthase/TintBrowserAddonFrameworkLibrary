@@ -22,16 +22,26 @@ import android.os.Parcel;
 
 public class LoadUrlAction extends Action {
 
+	private String mTabId;
 	private String mUrl;
 	private boolean mLoadRawUrl;
 	
 	public LoadUrlAction(String url) {
-		this(url, false);
+		this(null, url, false);
+	}
+	
+	public LoadUrlAction(String tabId, String url) {
+		this(tabId, url, false);
 	}
 	
 	public LoadUrlAction(String url, boolean loadRawUrl) {
+		this(null, url, loadRawUrl);
+	}
+	
+	public LoadUrlAction(String tabId, String url, boolean loadRawUrl) {
 		super(ACTION_LOAD_URL);
 		
+		mTabId = tabId;
 		mUrl = url;
 		mLoadRawUrl = loadRawUrl;
 	}
@@ -39,8 +49,13 @@ public class LoadUrlAction extends Action {
 	public LoadUrlAction(Parcel in) {
 		super(ACTION_LOAD_URL);
 		
+		mTabId = in.readString();
 		mUrl = in.readString();
 		mLoadRawUrl = in.readInt() > 0 ? true : false;
+	}
+	
+	public String getTabId() {
+		return mTabId;
 	}
 	
 	public String getUrl() {
@@ -55,6 +70,7 @@ public class LoadUrlAction extends Action {
 	public void writeToParcel(Parcel dest, int flags) {
 		super.writeToParcel(dest, flags);
 		
+		dest.writeString(mTabId);
 		dest.writeString(mUrl);
 		dest.writeInt(mLoadRawUrl ? 1 : 0);
 	}

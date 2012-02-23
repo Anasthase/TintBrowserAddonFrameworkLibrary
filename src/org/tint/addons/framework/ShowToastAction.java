@@ -26,6 +26,10 @@ public class ShowToastAction extends Action {
 	private String mMessage;
 	private int mToastLenght;
 	
+	public ShowToastAction(String toastMessage) {
+		this(toastMessage, Toast.LENGTH_SHORT);
+	}
+	
 	public ShowToastAction(String toastMessage, int toastLength) {
 		super(Action.ACTION_SHOW_TOAST);
 		

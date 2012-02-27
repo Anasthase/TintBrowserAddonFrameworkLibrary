@@ -40,6 +40,7 @@ interface IAddon {
 	
 	List<Action> onTabOpened(String tabId);
 	List<Action> onTabClosed(String tabId);
+	List<Action> onTabSwitched(String tabId);
 	
 	String getContributedMainMenuItem(String currentTabId);
 	List<Action> onContributedMainMenuItemSelected(String currentTabId, String currentTitle, String currentUrl);

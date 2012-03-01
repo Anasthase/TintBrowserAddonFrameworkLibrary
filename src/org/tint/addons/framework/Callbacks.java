@@ -27,7 +27,7 @@ public class Callbacks {
 	public static final int TAB_CLOSED = 8;
 	public static final int TAB_SWITCHED = 16;
 	
-	public static final int HAS_PREFERENCES_PAGE = 32;
+	public static final int HAS_SETTINGS_PAGE = 32;
 	
 	public static final int CONTRIBUTE_MAIN_MENU = 64;
 	public static final int CONTRIBUTE_LINK_CONTEXT_MENU = 128;

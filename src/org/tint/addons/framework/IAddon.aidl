@@ -59,5 +59,5 @@ interface IAddon {
 	
 	List<Action> onUserAnswerQuestion(String currentTabId, String questionId, boolean positiveAnswer);
 	
-	void showAddonPreferenceActivity();	
+	void showAddonSettingsActivity();	
 }

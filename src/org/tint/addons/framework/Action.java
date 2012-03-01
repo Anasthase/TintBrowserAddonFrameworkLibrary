@@ -27,17 +27,19 @@ public class Action implements Parcelable {
 	
 	public static final int ACTION_SHOW_TOAST = 1;
 	public static final int ACTION_SHOW_DIALOG = 2;
-	public static final int ACTION_ASK_USER = 3;
+	public static final int ACTION_ASK_USER_CONFIRMATION = 3;
+	public static final int ACTION_ASK_USER_INPUT = 4;
+	public static final int ACTION_ASK_USER_CHOICE = 5;
 		
-	public static final int ACTION_ADD_TAB = 4;
-	public static final int ACTION_CLOSE_CURRENT_TAB = 5;
+	public static final int ACTION_ADD_TAB = 6;
+	public static final int ACTION_CLOSE_CURRENT_TAB = 7;
 	
-	public static final int ACTION_LOAD_URL = 6;
+	public static final int ACTION_LOAD_URL = 8;
 	
-	public static final int ACTION_BROWSE_STOP = 7;
-	public static final int ACTION_BROWSE_RELOAD = 8;
-	public static final int ACTION_BROWSE_FORWARD = 9;
-	public static final int ACTION_BROWSE_BACK = 10;
+	public static final int ACTION_BROWSE_STOP = 9;
+	public static final int ACTION_BROWSE_RELOAD = 10;
+	public static final int ACTION_BROWSE_FORWARD = 11;
+	public static final int ACTION_BROWSE_BACK = 12;
 	
 	public static final Parcelable.Creator<Action> CREATOR	= new Parcelable.Creator<Action>() {
 
@@ -55,8 +57,12 @@ public class Action implements Parcelable {
 				return new ShowToastAction(in);
 			case ACTION_SHOW_DIALOG:
 				return new ShowDialogAction(in);
-			case ACTION_ASK_USER:
-				return new AskUserAction(in);
+			case ACTION_ASK_USER_CONFIRMATION:
+				return new AskUserConfirmationAction(in);
+			case ACTION_ASK_USER_INPUT:
+				return new AskUserInputAction(in);
+			case ACTION_ASK_USER_CHOICE:
+				return new AskUserChoiceAction(in);
 			case ACTION_ADD_TAB:
 				return new AddTabAction(in);
 			case ACTION_LOAD_URL:

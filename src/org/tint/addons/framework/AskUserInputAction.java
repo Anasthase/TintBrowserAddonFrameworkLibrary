@@ -19,17 +19,36 @@
 package org.tint.addons.framework;
 
 import android.os.Parcel;
+import android.text.InputType;
 
 public class AskUserInputAction extends BaseAskUserAction {
 
 	private String mTitle;
 	private String mMessage;
+	private String mInputHint;
+	private String mDefaultInput;
+	private int mInputType;
 	
 	public AskUserInputAction(String title, String message) {
-		super(ACTION_ASK_USER_INPUT);
+		this(title, message, null, null, InputType.TYPE_CLASS_TEXT);
+	}
+	
+	public AskUserInputAction(String title, String message, String inputHint) {
+		this(title, message, inputHint, null, InputType.TYPE_CLASS_TEXT);
+	}
+	
+	public AskUserInputAction(String title, String message, String inputHint, String defaultInput) {
+		this(title, message, inputHint, defaultInput, InputType.TYPE_CLASS_TEXT);
+	}
+	
+	public AskUserInputAction(String title, String message, String inputHint, String defaultInput, int inputType) {
+		super(ACTION_ASK_USER_INPUT);		
 		
 		mTitle = title;
 		mMessage = message;
+		mInputHint = inputHint;
+		mDefaultInput = defaultInput;
+		mInputType = inputType;
 	}
 	
 	public AskUserInputAction(Parcel in) {
@@ -37,6 +56,9 @@ public class AskUserInputAction extends BaseAskUserAction {
 		
 		mTitle = in.readString();
 		mMessage = in.readString();
+		mInputHint = in.readString();
+		mDefaultInput = in.readString();
+		mInputType = in.readInt();
 	}
 	
 	public String getTitle() {
@@ -47,12 +69,27 @@ public class AskUserInputAction extends BaseAskUserAction {
 		return mMessage;
 	}
 	
+	public String getInputHint() {
+		return mInputHint;
+	}
+	
+	public String getDefaultInput() {
+		return mDefaultInput;
+	}
+	
+	public int getInputType() {
+		return mInputType;
+	}
+	
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
 		super.writeToParcel(dest, flags);
 		
 		dest.writeString(mTitle);
 		dest.writeString(mMessage);
+		dest.writeString(mInputHint);
+		dest.writeString(mDefaultInput);
+		dest.writeInt(mInputType);
 	}
 
 }

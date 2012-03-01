@@ -18,6 +18,7 @@
 
 package org.tint.addons.framework;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.os.Parcel;
@@ -38,6 +39,7 @@ public class AskUserChoiceAction extends BaseAskUserAction {
 		super(in, ACTION_ASK_USER_CHOICE);
 		
 		mTitle = in.readString();
+		mChoices = new ArrayList<String>();
 		in.readStringList(mChoices);
 	}
 	
@@ -54,7 +56,7 @@ public class AskUserChoiceAction extends BaseAskUserAction {
 		super.writeToParcel(dest, flags);
 		
 		dest.writeString(mTitle);
-		dest.writeStringList(mChoices);
+		dest.writeStringList(mChoices);		
 	}
 
 }

@@ -31,8 +31,8 @@ public class Action implements Parcelable {
 	public static final int ACTION_ASK_USER_INPUT = 4;
 	public static final int ACTION_ASK_USER_CHOICE = 5;
 		
-	public static final int ACTION_ADD_TAB = 6;
-	public static final int ACTION_CLOSE_CURRENT_TAB = 7;
+	public static final int ACTION_OPEN_TAB = 6;
+	public static final int ACTION_CLOSE_TAB = 7;
 	
 	public static final int ACTION_LOAD_URL = 8;
 	
@@ -47,12 +47,12 @@ public class Action implements Parcelable {
 			int action = in.readInt();
 			
 			switch (action) {
-			case ACTION_CLOSE_CURRENT_TAB:
+			case ACTION_CLOSE_TAB:
 			case ACTION_BROWSE_STOP:
 			case ACTION_BROWSE_RELOAD:
 			case ACTION_BROWSE_FORWARD:
 			case ACTION_BROWSE_BACK:
-				return new Action(action);
+				return new TabAction(in, action);
 			case ACTION_SHOW_TOAST:
 				return new ShowToastAction(in);
 			case ACTION_SHOW_DIALOG:
@@ -63,8 +63,8 @@ public class Action implements Parcelable {
 				return new AskUserInputAction(in);
 			case ACTION_ASK_USER_CHOICE:
 				return new AskUserChoiceAction(in);
-			case ACTION_ADD_TAB:
-				return new AddTabAction(in);
+			case ACTION_OPEN_TAB:
+				return new OpenTabAction(in);
 			case ACTION_LOAD_URL:
 				return new LoadUrlAction(in);
 			default:
@@ -95,25 +95,5 @@ public class Action implements Parcelable {
 	
 	public int getAction() {
 		return mAction;
-	}
-	
-	public static Action createCloseTabAction() {
-		return new Action(ACTION_CLOSE_CURRENT_TAB);
-	}
-	
-	public static Action createBrowseStopAction() {
-		return new Action(ACTION_BROWSE_STOP);
-	}
-	
-	public static Action createBrowseReloadAction() {
-		return new Action(ACTION_BROWSE_RELOAD);
-	}
-	
-	public static Action createBrowseForwardAction() {
-		return new Action(ACTION_BROWSE_FORWARD);
-	}
-	
-	public static Action createBrowseBackAction() {
-		return new Action(ACTION_BROWSE_BACK);
 	}
 }

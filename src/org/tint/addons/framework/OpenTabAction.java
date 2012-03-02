@@ -20,22 +20,22 @@ package org.tint.addons.framework;
 
 import android.os.Parcel;
 
-public class AddTabAction extends Action {
+public class OpenTabAction extends Action {
 	
 	private String mUrl;
 	
-	public AddTabAction() {
+	public OpenTabAction() {
 		this((String) null);
 	}
 	
-	public AddTabAction(String url) {
-		super(ACTION_ADD_TAB);
+	public OpenTabAction(String url) {
+		super(ACTION_OPEN_TAB);
 		
 		mUrl = url;
 	}
 	
-	public AddTabAction(Parcel in) {
-		super(ACTION_ADD_TAB);
+	public OpenTabAction(Parcel in) {
+		super(ACTION_OPEN_TAB);
 		
 		mUrl = in.readString();
 	}

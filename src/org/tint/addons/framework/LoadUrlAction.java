@@ -20,9 +20,8 @@ package org.tint.addons.framework;
 
 import android.os.Parcel;
 
-public class LoadUrlAction extends Action {
+public class LoadUrlAction extends TabAction {
 
-	private String mTabId;
 	private String mUrl;
 	private boolean mLoadRawUrl;
 	
@@ -41,7 +40,6 @@ public class LoadUrlAction extends Action {
 	public LoadUrlAction(String tabId, String url, boolean loadRawUrl) {
 		super(ACTION_LOAD_URL);
 		
-		mTabId = tabId;
 		mUrl = url;
 		mLoadRawUrl = loadRawUrl;
 	}
@@ -49,13 +47,8 @@ public class LoadUrlAction extends Action {
 	public LoadUrlAction(Parcel in) {
 		super(ACTION_LOAD_URL);
 		
-		mTabId = in.readString();
 		mUrl = in.readString();
 		mLoadRawUrl = in.readInt() > 0 ? true : false;
-	}
-	
-	public String getTabId() {
-		return mTabId;
 	}
 	
 	public String getUrl() {
@@ -70,7 +63,6 @@ public class LoadUrlAction extends Action {
 	public void writeToParcel(Parcel dest, int flags) {
 		super.writeToParcel(dest, flags);
 		
-		dest.writeString(mTabId);
 		dest.writeString(mUrl);
 		dest.writeInt(mLoadRawUrl ? 1 : 0);
 	}

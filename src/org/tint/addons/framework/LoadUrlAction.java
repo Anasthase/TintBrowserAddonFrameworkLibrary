@@ -38,14 +38,14 @@ public class LoadUrlAction extends TabAction {
 	}
 	
 	public LoadUrlAction(String tabId, String url, boolean loadRawUrl) {
-		super(ACTION_LOAD_URL);
+		super(ACTION_LOAD_URL, tabId);
 		
 		mUrl = url;
 		mLoadRawUrl = loadRawUrl;
 	}
 	
 	public LoadUrlAction(Parcel in) {
-		super(ACTION_LOAD_URL);
+		super(in, ACTION_LOAD_URL);
 		
 		mUrl = in.readString();
 		mLoadRawUrl = in.readInt() > 0 ? true : false;

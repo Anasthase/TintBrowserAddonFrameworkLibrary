@@ -30,8 +30,7 @@ interface IAddon {
 	String getName();
 	String getShortDescription();
 	String getDescription();
-	String getEMail();
-	String getWebsite();
+	String getContact();
 	
 	int getCallbacks();
 	

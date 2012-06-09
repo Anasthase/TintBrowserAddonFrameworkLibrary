@@ -28,8 +28,8 @@ public class AskUserChoiceAction extends BaseAskUserAction {
 	private String mTitle;
 	private List<String> mChoices;
 	
-	public AskUserChoiceAction(String title, List<String> choices) {
-		super(ACTION_ASK_USER_CHOICE);
+	public AskUserChoiceAction(int id, String title, List<String> choices) {
+		super(ACTION_ASK_USER_CHOICE, id);
 		
 		mTitle = title;
 		mChoices = choices;

@@ -18,32 +18,30 @@
 
 package org.tint.addons.framework;
 
-import java.util.UUID;
-
 import android.os.Parcel;
 
 public abstract class BaseAskUserAction extends Action {
 
-	protected UUID mId;
+	protected int mId;
 	
-	protected BaseAskUserAction(int action) {
+	protected BaseAskUserAction(int action, int id) {
 		super(action);		
-		mId = UUID.randomUUID();
+		mId = id;
 	}
 	
 	protected BaseAskUserAction(Parcel in, int action) {
 		super(action);
-		mId = UUID.fromString(in.readString());
+		mId = in.readInt();
 	}
 	
-	public UUID getId() {
+	public int getId() {
 		return mId;
 	}
 	
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		super.writeToParcel(dest, flags);
-		dest.writeString(mId.toString());
+		super.writeToParcel(dest, flags);		
+		dest.writeInt(mId);
 	}
 
 }

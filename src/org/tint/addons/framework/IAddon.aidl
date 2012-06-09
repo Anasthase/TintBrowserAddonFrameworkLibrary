@@ -56,9 +56,9 @@ interface IAddon {
 	String getContributedHistoryContextMenuItem(String currentTabId);
 	List<Action> onContributedHistoryContextMenuItemSelected(String currentTabId, String title, String url);
 	
-	List<Action> onUserConfirm(String currentTabId, String questionId, boolean positiveAnswer);
-	List<Action> onUserInput(String currentTabId, String questionId, boolean cancelled, String userInput);
-	List<Action> onUserChoice(String currentTabId, String questionId, boolean cancelled, int userChoice);
+	List<Action> onUserConfirm(String currentTabId, int questionId, boolean positiveAnswer);
+	List<Action> onUserInput(String currentTabId, int questionId, boolean cancelled, String userInput);
+	List<Action> onUserChoice(String currentTabId, int questionId, boolean cancelled, int userChoice);
 	
 	void showAddonSettingsActivity();	
 }

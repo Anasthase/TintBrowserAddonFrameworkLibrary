@@ -27,8 +27,8 @@ public class AskUserConfirmationAction extends BaseAskUserAction {
 	private String mPositiveButtonCaption;
 	private String mNegativeButtonCaption;
 
-	public AskUserConfirmationAction(String title, String message, String positiveButtonCaption, String negativeButtonCaption) {
-		super(ACTION_ASK_USER_CONFIRMATION);
+	public AskUserConfirmationAction(int id, String title, String message, String positiveButtonCaption, String negativeButtonCaption) {
+		super(ACTION_ASK_USER_CONFIRMATION, id);
 		
 		mTitle = title;
 		mMessage = message;

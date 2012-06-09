@@ -29,20 +29,20 @@ public class AskUserInputAction extends BaseAskUserAction {
 	private String mDefaultInput;
 	private int mInputType;
 	
-	public AskUserInputAction(String title, String message) {
-		this(title, message, null, null, InputType.TYPE_CLASS_TEXT);
+	public AskUserInputAction(int id, String title, String message) {
+		this(id, title, message, null, null, InputType.TYPE_CLASS_TEXT);
 	}
 	
-	public AskUserInputAction(String title, String message, String inputHint) {
-		this(title, message, inputHint, null, InputType.TYPE_CLASS_TEXT);
+	public AskUserInputAction(int id, String title, String message, String inputHint) {
+		this(id, title, message, inputHint, null, InputType.TYPE_CLASS_TEXT);
 	}
 	
-	public AskUserInputAction(String title, String message, String inputHint, String defaultInput) {
-		this(title, message, inputHint, defaultInput, InputType.TYPE_CLASS_TEXT);
+	public AskUserInputAction(int id, String title, String message, String inputHint, String defaultInput) {
+		this(id, title, message, inputHint, defaultInput, InputType.TYPE_CLASS_TEXT);
 	}
 	
-	public AskUserInputAction(String title, String message, String inputHint, String defaultInput, int inputType) {
-		super(ACTION_ASK_USER_INPUT);		
+	public AskUserInputAction(int id, String title, String message, String inputHint, String defaultInput, int inputType) {
+		super(ACTION_ASK_USER_INPUT, id);		
 		
 		mTitle = title;
 		mMessage = message;
